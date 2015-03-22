@@ -13,9 +13,25 @@ public class GameManager : SingletonSceneLifetime < GameManager >
 	// Update is called once per frame
 	void Update () {
 	
-		if (Input.GetMouseButton (0)) 
+		Vector3 position = Vector3.zero;
+		bool touchDetected = false;
+
+		if (Input.GetMouseButtonDown (0)) 
 		{
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			Debug.Log("BUTTON 0 DOWN");
+			touchDetected = true;
+			position = Input.mousePosition;
+		} 
+		else if (Input.touches.Length > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
+		{
+			Debug.Log("TOUCH START");
+			touchDetected = true;
+			position = Input.GetTouch(0).position;
+		}
+
+		if (touchDetected) 
+		{
+			Ray ray = Camera.main.ScreenPointToRay (position);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit, 200))
 			{
