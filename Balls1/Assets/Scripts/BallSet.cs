@@ -11,6 +11,10 @@ public class BallSet : MonoBehaviour {
 
 	public Material ballMaterial;
 
+	void Awake()
+	{
+	}
+
 	// Use this for initialization
 	void Start () {
 	
@@ -25,7 +29,13 @@ public class BallSet : MonoBehaviour {
 	{
 		GameObject newObject = Instantiate (ballPrefab) as GameObject;
 		newObject.name = "Ball" + s_nextBallNumber.ToString ();
-		newObject.transform.position = ballSpawnPoint.transform.position;
+
+		Vector3 position = ballSpawnPoint.position;
+
+		position.x += Random.Range (-1, 2);
+		position.z += Random.Range (-1, 2);
+
+		newObject.transform.position = position;
 		newObject.transform.parent = ballsContainer;
 
 		Ball newBall = newObject.GetComponent< Ball > ();
