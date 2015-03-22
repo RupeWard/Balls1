@@ -47,7 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Ball.cs" />
+     <Compile Include="Assets\Scripts\BallPanel.cs" />
      <Compile Include="Assets\Scripts\BallSet.cs" />
+     <Compile Include="Assets\Scripts\Core\IDebugDescribable.cs" />
+     <Compile Include="Assets\Scripts\Core\Singleton.cs" />
+     <Compile Include="Assets\Scripts\Core\UnityHelpers.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity5.0.0f4/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
